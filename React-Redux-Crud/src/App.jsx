@@ -3,7 +3,9 @@ import Home from './Home'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Create from './Create'
-// zakonczylem na 6 minucie
+import Update from './Update'
+
+// zakonczylem na 19 minucie 
 
 function App() {
   return (
@@ -11,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}> </Route>
         <Route path="/create" element={<Create />}> </Route>
+        <Route path="/edit/:id" element={<Update />}> </Route>
       </Routes>
       </BrowserRouter>
   )
