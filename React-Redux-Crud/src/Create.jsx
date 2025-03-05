@@ -1,8 +1,9 @@
+// Create.jsx
 import { useState } from 'react';
 import { addUser } from './UserReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Container, Paper, TextField, Button, Typography } from '@mui/material';
+import UserForm from './UserForm';
 
 function Create() {
   const [name, setName] = useState('');
@@ -18,38 +19,15 @@ function Create() {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={3} style={{ padding: '20px', marginTop: '20px' }}>
-        <Typography variant="h5" component="h3" gutterBottom>
-          Add New User
-        </Typography>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            label="Name"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <TextField
-            label="Email"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            fullWidth
-            style={{ marginTop: '16px' }}
-          >
-            Submit
-          </Button>
-        </form>
-      </Paper>
-    </Container>
+    <UserForm
+      title="Add New User"
+      onSubmit={handleSubmit}
+      name={name}
+      setName={setName}
+      email={email}
+      setEmail={setEmail}
+      submitLabel="Submit"
+    />
   );
 }
 
