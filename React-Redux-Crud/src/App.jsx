@@ -5,7 +5,7 @@ import Home from './Home';
 import Create from './Create';
 import Update from './Update';
 import Layout from './Layout';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Możesz usunąć, jeśli całkowicie przechodzisz na MUI
 
 function App() {
   return (
@@ -22,4 +22,3 @@ function App() {
 }
 
 export default App;
-

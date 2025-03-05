@@ -1,26 +1,32 @@
-// Layout.jsx
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import HomeIcon from '@mui/icons-material/Home';
+import AddIcon from '@mui/icons-material/Add';
 
 function Layout() {
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
-          <Navbar.Brand as={Link} to="/">Crud App</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/create">Create</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <Container className="mt-4">
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton component={Link} to="/" edge="start" color="inherit" aria-label="home">
+            <HomeIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Crud App
+          </Typography>
+          <Button component={Link} to="/create" color="inherit" startIcon={<AddIcon />}>
+            Create
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <div style={{ padding: '20px' }}>
         <Outlet />
-      </Container>
+      </div>
     </>
   );
 }
